@@ -3,25 +3,29 @@ var uglify = require("gulp-uglify");
 var sass = require("gulp-sass");
 var sync = require("browser-sync");
 
-gulp.task("reload", function() {
+gulp.task("reload", function(done) {
     sync.reload();
+    done();
 });
 
-gulp.task("uglify", function() {
+gulp.task("uglify", function(done) {
     gulp.src("src/js/**/*.js")
     .pipe(uglify())
     .pipe(gulp.dest("final/js"));
+    done();
 });
 
-gulp.task("sass", function() {
+gulp.task("sass", function(done) {
     gulp.src("src/sass/**/*.scss")
     .pipe(sass().on("error", sass.logError))
     .pipe(gulp.dest("final/css"));
+    done();
 })
 
-gulp.task("copy", function() {
+gulp.task("copy", function(done) {
     gulp.src("src/*.html")
     .pipe(gulp.dest("final"));
+    done();
 })
 
 gulp.task("default", gulp.parallel("uglify", "sass", "copy"));
@@ -31,7 +35,7 @@ gulp.task("sync", function() {
         server: "final"
     });
 
-    gulp.watch("src/*.html", gulp.parallel("copy", "reload"));
-    gulp.watch("src/js/**/*.js", gulp.parallel("uglify", "reload"));
-    gulp.watch("src/sass/**/*.scss", gulp.parallel("sass", "reload"));
+    gulp.watch("src/*.html", gulp.series("copy", "reload"));
+    gulp.watch("src/js/**/*.js", gulp.series("uglify", "reload"));
+    gulp.watch("src/sass/**/*.scss", gulp.series("sass", "reload"));
 });
