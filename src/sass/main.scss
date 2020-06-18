@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+}
+
+body {
+    background-color: #000000;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#top,
+#middle,
+#bottom {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 50%;
+}
+
+#top {
+    top: 2rem;
+    transform: translateX(-50%);
+
+    #sigWrapper {
+        text-align: center;
+
+        #sig {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1rem;
+            color: rgba(#e84a5f, 0.5);
+            text-decoration: underline;
+
+            &:hover {
+                color: rgba(#e84a5f, 1);
+            }
+        }
+    }
+}
+
+#middle {
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    #screenWrapper {
+        #screen {
+            font-family: 'Roboto', sans-serif;
+            font-size: 4rem;
+            font-weight: 500;
+            line-height: 4rem;
+            color: #e84a5f;
+        }
+    }
+
+    #lapsContainer {
+        margin-top: 2rem;
+
+        #laps {
+            max-height: 12rem;
+            overflow: auto;
+
+            &::-webkit-scrollbar {
+                width: 0.5rem;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: #e84a5f;
+                border-radius: 999rem;
+            }
+
+            .lap {
+                text-align: right;
+                position: relative;
+                background-color: rgba(#e84a5f, 0.125);
+                border-radius: 0.5rem;
+                padding: 0.5rem 1rem 0.5rem 0.5rem;
+                margin: 0.5rem 0.5rem 0 0;
+
+                .lapNumber,
+                .lapTime {
+                    font-family: 'Roboto Mono', monospace;
+                    font-size: 1rem;
+                    font-weight: 400;
+                    line-height: 1rem;
+                }
+
+                .lapNumber {
+                    position: absolute;
+                    left: 0.5rem;
+                    background-color: #e84a5f;
+                    border-radius: 0.5rem;
+                    padding: 0 0.5rem;
+                    color: #000000;
+                }
+
+                .lapTime {
+                    color: #e84a5f;
+                }
+            }
+        }
+    }
+}
+
+#bottom {
+    bottom: 2rem;
+    transform: translateX(-50%);
+
+    #panelWrapper {
+        #panel {
+            display: flex;
+            flex-direction: row;
+
+            .panelButton {
+                padding: 0 1rem;
+
+                .panelButtonIcon {
+                    line-height: 1.5rem;
+                    font-size: 1.5rem;
+                    color: #e84a5f;
+                }
+            }
+        }
+    }
+}
+
+//e84a5f

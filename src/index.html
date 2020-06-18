@@ -1,0 +1,56 @@
+<!-- paweł staszczuk 2020 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stopwatch</title>
+    <!-- styles -->
+    <link href="css/main.css" rel="stylesheet">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/587c435390.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="top">
+        <div id="sigWrapper">
+            <a id="sig" href="https://staszczuk.eu.org/">staszczuk.eu.org</a>
+        </div>
+    </div>
+    <div id="middle">
+        <div id="screenWrapper">
+            <div id="screen">00:00:00</div>
+        </div>
+        <div id="lapsContainer">
+            <div id="laps"></div>
+        </div>
+    </div>
+    <div id="bottom">
+        <div id="panelWrapper">
+            <div id="panel">
+                <div class="panelButton" id="play" onclick="startPause()">
+                    <i class="panelButtonIcon fas fa-play"></i>
+                </div>
+                <div class="panelButton hidden" id="pause" onclick="startPause()">
+                    <i class="panelButtonIcon fas fa-pause"></i>
+                </div>
+                <div class="panelButton" onclick="stop()">
+                    <i class="panelButtonIcon fas fa-stop"></i>
+                </div>
+                <div class="panelButton" onclick="lap()">
+                    <i class="panelButtonIcon fas fa-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- js -->
+<script type="text/javascript" src="js/main.js"></script>
+
+</html>
