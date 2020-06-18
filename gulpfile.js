@@ -38,7 +38,6 @@ gulp.task("sync", function() {
     sync({
         server: "final"
     });
-
     gulp.watch("src/*.html", gulp.series("copy", "reload"));
     gulp.watch("src/js/**/*.js", gulp.series("uglify", "reload"));
     gulp.watch("src/sass/**/*.scss", gulp.series("sass", "reload"));
