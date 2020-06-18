@@ -2,6 +2,8 @@ var gulp = require("gulp");
 var uglify = require("gulp-uglify");
 var sass = require("gulp-sass");
 var sync = require("browser-sync");
+var cssnano = require('gulp-cssnano');
+var htmlmin = require('gulp-htmlmin');
 
 gulp.task("reload", function(done) {
     sync.reload();
@@ -18,12 +20,14 @@ gulp.task("uglify", function(done) {
 gulp.task("sass", function(done) {
     gulp.src("src/sass/**/*.scss")
     .pipe(sass().on("error", sass.logError))
+    .pipe(cssnano())
     .pipe(gulp.dest("final/css"));
     done();
 })
 
 gulp.task("copy", function(done) {
     gulp.src("src/*.html")
+    .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("final"));
     done();
 })
